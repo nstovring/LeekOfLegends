@@ -6,6 +6,8 @@ public class Character : MonoBehaviour
    
     public float range;
     public float speed;
+    private string opposition = "Enemy";
+
     public GameObject attackRangeObject;
 
     public Collider attackRangeCollider;
@@ -36,22 +38,22 @@ public class Character : MonoBehaviour
         {
             if (hitCollider.transform.tag == opposition)
             {
-                Stats curEnemy = hitCollider.transform.GetComponent<Stats>();
+                EnemyScript curEnemy = hitCollider.transform.GetComponent<EnemyScript>();
                 //Check if enemy is alive
-                if (!curEnemy.isAlive)
+                //if (!curEnemy.dead)
                 {
-                    if (enemies.Contains(curEnemy))
-                    {
-                        enemies.Remove(curEnemy);
-                    }
+                    //if (enemies.Contains(curEnemy))
+                    //{
+                    //    enemies.Remove(curEnemy);
+                    //}
                     //curTarget = null;
-                    return;
+                    //return;
                 }
-                if (!enemies.Contains(curEnemy))
-                {
-                    enemies.Add(curEnemy);
-                    return;
-                }
+                //if (!enemies.Contains(curEnemy))
+                //{
+                //    enemies.Add(curEnemy);
+                //    return;
+                //}
             }
         }
     }

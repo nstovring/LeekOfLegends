@@ -38,7 +38,7 @@ public class EnemyScript : Stats {
         Destroy(navMeshAgent);
         GetComponent<Rigidbody>().useGravity = true;
         //GetComponent<Rigidbody>().AddForce(new Vector3(15, 50));
-        GetComponent<Rigidbody>().AddExplosionForce(50f, HeroScript.hero.position, 10);
+        GetComponent<Rigidbody>().AddExplosionForce(50f, Character.characterTransform.position, 10);
         dead = true;
     }
     public void RecieveDamage(int dmg)

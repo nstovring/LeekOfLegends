@@ -16,7 +16,7 @@ public class WithinRange : MonoBehaviour
         {
             AudioClip clip = GetComponent<AudioSource>().clip;
             GetComponent<AudioSource>().PlayOneShot(clip);
-            other.transform.GetComponent<EnemyScript>().recieveDamage(dmg);
+            other.transform.GetComponent<EnemyScript>().RecieveDamage(dmg);
         }
     }
 

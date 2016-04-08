@@ -7,7 +7,7 @@ public class Character : MonoBehaviour
     public float range;
     public float speed;
     private string opposition = "Enemy";
-
+    public static Transform characterTransform;
     public GameObject attackRangeObject;
 
     public Collider attackRangeCollider;
@@ -16,6 +16,7 @@ public class Character : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+        characterTransform = transform;
 	    attackRangeCollider = attackRangeObject.transform.GetComponent<Collider>();
 	    rb = GetComponent<Rigidbody>();
 	}

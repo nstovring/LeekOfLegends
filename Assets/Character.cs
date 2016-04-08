@@ -9,13 +9,13 @@ public class Character : MonoBehaviour
     public GameObject attackRangeObject;
 
     public Collider attackRangeCollider;
-    private Rigidbody rigidbody;
+    private Rigidbody rb;
 
 	// Use this for initialization
 	void Start ()
 	{
 	    attackRangeCollider = attackRangeObject.transform.GetComponent<Collider>();
-	    rigidbody = GetComponent<Rigidbody>();
+	    rb = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
@@ -28,13 +28,41 @@ public class Character : MonoBehaviour
         
     }
 
+
+    public void GetEnemyCollision()
+    {
+        Collider[] hitColliders = Physics.OverlapBox(transform.position, new Vector3(0.7f, 1, 0.7f));
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.transform.tag == opposition)
+            {
+                Stats curEnemy = hitCollider.transform.GetComponent<Stats>();
+                //Check if enemy is alive
+                if (!curEnemy.isAlive)
+                {
+                    if (enemies.Contains(curEnemy))
+                    {
+                        enemies.Remove(curEnemy);
+                    }
+                    //curTarget = null;
+                    return;
+                }
+                if (!enemies.Contains(curEnemy))
+                {
+                    enemies.Add(curEnemy);
+                    return;
+                }
+            }
+        }
+    }
+
     public void Move()
     {
         float hFloat = Input.GetAxis("Horizontal");
         Vector3 newPosition = transform.position +  new Vector3(Input.GetAxis("Horizontal")*speed,0, Input.GetAxis("Vertical")*speed);
         //rigidbody.position + = newPosition;s
 
-        rigidbody.MovePosition(newPosition);
+        rb.MovePosition(newPosition);
         //transform.position = newPosition;
         if (hFloat> 0.1f)
         {

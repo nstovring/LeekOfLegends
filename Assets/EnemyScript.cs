@@ -39,7 +39,8 @@ public class EnemyScript : Stats {
             if(Vector3.Distance(Character.characterTransform.position, transform.position) > offsetValue)
             {
                 //ToPlayer();
-                StartNewJourney();
+                //StartNewJourney();
+                GoToPlayer();
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -87,5 +88,31 @@ public class EnemyScript : Stats {
     Vector3 VectorSetHeight(Vector3 vector)
     {
         return new Vector3(vector.x, Spawner.spawnHeight, vector.z);
+    }
+    public void GoToPlayer()
+    {
+        Vector3 distVector = Character.characterTransform.position - transform.position;
+        float angle;
+        Quaternion rotation;
+        if(distVector.x >= 0)
+        {
+            angle = Vector3.Angle(distVector, Vector3.right);
+            if(distVector.z >= 0)
+            {
+                angle = -angle;
+            }
+            rotation = Quaternion.Euler(0, angle, 0);
+            GetComponent<Rigidbody>().MovePosition(transform.position + rotation * Vector3.right * Time.deltaTime * movementSpeed);
+        }
+        else if (distVector.x < 0)
+        {
+            angle = Vector3.Angle(distVector, Vector3.left);
+            if (distVector.z <= 0)
+            {
+                angle = -angle;
+            }
+            rotation = Quaternion.Euler(0, angle, 0);
+            GetComponent<Rigidbody>().MovePosition(transform.position + rotation * Vector3.left * Time.deltaTime * movementSpeed);
+        }
     }
 }

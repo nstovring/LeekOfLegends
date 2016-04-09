@@ -27,6 +27,7 @@ public class SoundEventHandler : MonoBehaviour {
         {
             int chooseSong = (int)Random.Range(0, prefab_punchline.Length - 0.1f);
             playMusic(general_punchlines[chooseSong]);
+            Debug.Log("NOW PLAYING GENERAL SOUND");
         }
 
         procChance = 25;
@@ -35,6 +36,7 @@ public class SoundEventHandler : MonoBehaviour {
         {
             int chooseSong = (int)Random.Range(0, prefab_punchline.Length - 0.1f);
             playMusic(prefab_punchline[chooseSong]);
+            Debug.Log("NOW PLAYING PREFAB SOUND");
         }
     }
     public void playMusic(AudioClip music)

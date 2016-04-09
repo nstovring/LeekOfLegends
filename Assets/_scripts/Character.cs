@@ -17,6 +17,7 @@ public class Character : MonoBehaviour
     private AudioSource audio;
     private float startingPitch = 1;
     private float startringVolume = 0.7F;
+    private int animSwitch = 1;
     private Rigidbody rb;
 
     public Text healthText;
@@ -25,17 +26,23 @@ public class Character : MonoBehaviour
 	void Start ()
 	{
         audio = GetComponent<AudioSource>();
-        animator = GetComponent<Animator>();
+	    animator = GetComponentInChildren<Animator>();
 
         characterTransform = transform;
 	    rb = GetComponent<Rigidbody>();
 	}
+
+
 	
 	// Update is called once per frame
 	void Update () {
-	    Move();
+        
+        Move();
         GetEnemyCollision();
-	}
+
+       
+
+    }
 
     public void Attack()
     {
@@ -76,6 +83,12 @@ public class Character : MonoBehaviour
     {
         if (Input.GetButtonDown("Attack"))
         {
+
+            //animation switch
+            animSwitch *= -1;
+            Debug.Log(animSwitch);
+            animator.SetInteger("animState", animSwitch);
+
             foreach (var hitCollider in hitColliders)
             {
                 if (hitCollider.transform.tag == opposition)

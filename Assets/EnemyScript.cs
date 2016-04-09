@@ -142,4 +142,33 @@ public class EnemyScript : Stats {
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
+    public void GoToPlayer(Vector3 position, bool moveOtherWay)
+    {
+        Vector3 distVector = position - transform.position;
+        float angle;
+        Quaternion rotation;
+        if (distVector.x >= 0)
+        {
+            angle = Vector3.Angle(distVector, Vector3.right);
+            if (distVector.z >= 0)
+            {
+                angle = -angle;
+            }
+            rotation = Quaternion.Euler(0, angle, 0);
+            GetComponent<Rigidbody>().MovePosition(transform.position + rotation * Vector3.right * Time.deltaTime * movementSpeed);
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else if (distVector.x < 0)
+        {
+            angle = Vector3.Angle(distVector, Vector3.left);
+            if (distVector.z <= 0)
+            {
+                angle = -angle;
+            }
+            rotation = Quaternion.Euler(0, angle, 0);
+            GetComponent<Rigidbody>().MovePosition(transform.position + rotation * Vector3.left * Time.deltaTime * movementSpeed);
+
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+    }
 }

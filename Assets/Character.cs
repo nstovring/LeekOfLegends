@@ -11,6 +11,7 @@ public class Character : MonoBehaviour
     public GameObject attackRangeObject;
 
     public Collider attackRangeCollider;
+    public int health = 100;
     private Rigidbody rb;
 
 	// Use this for initialization
@@ -69,6 +70,11 @@ public class Character : MonoBehaviour
         } 
     }
 
+    public void ReceiveDamage(int dmg)
+    {
+        health -= dmg;
+    }
+
     public void Move()
     {
         float hFloat = Input.GetAxis("Horizontal");
@@ -85,6 +91,14 @@ public class Character : MonoBehaviour
         {
             Quaternion turnLeft = Quaternion.Euler(new Vector3(0, -90, 0));
             transform.rotation = turnLeft;
+        }
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.transform.tag == "Enemy")
+        {
+            ReceiveDamage(1);
         }
     }
 

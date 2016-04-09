@@ -9,8 +9,6 @@ public class Character : MonoBehaviour
     public float speed;
     private string opposition = "Enemy";
     public static Transform characterTransform;
-    public GameObject attackRangeObject;
-    public Collider attackRangeCollider;
     public int health = 100; 
     public AudioClip punch;
     public AudioClip landingClip;
@@ -28,7 +26,6 @@ public class Character : MonoBehaviour
         audio = GetComponent<AudioSource>();
        
         characterTransform = transform;
-	    attackRangeCollider = attackRangeObject.transform.GetComponent<Collider>();
 	    rb = GetComponent<Rigidbody>();
 	}
 	
@@ -55,6 +52,26 @@ public class Character : MonoBehaviour
     {
         colliderBoxPos = transform.position + transform.forward* range;
         Collider[] hitColliders = Physics.OverlapBox(colliderBoxPos, colliderBoxSize/2);
+
+        BasicAttack(hitColliders);
+        HeavyAttack(hitColliders);
+        //if (Input.GetButtonDown("Attack"))
+        //{
+        //    foreach (var hitCollider in hitColliders)
+        //    {
+        //        if (hitCollider.transform.tag == opposition)
+        //        {
+        //            EnemyScript curEnemy = hitCollider.transform.GetComponent<EnemyScript>();
+        //            Debug.Log("Our hero is attacking");
+        //            Attack();
+        //            curEnemy.RecieveDamage(dmg);
+        //        }
+        //    }
+        //} 
+    }
+
+    public void BasicAttack(Collider[] hitColliders)
+    {
         if (Input.GetButtonDown("Attack"))
         {
             foreach (var hitCollider in hitColliders)
@@ -65,31 +82,38 @@ public class Character : MonoBehaviour
                     Debug.Log("Our hero is attacking");
                     Attack();
                     curEnemy.RecieveDamage(dmg);
-
-                    //Check if enemy is alive
-                    //if (!curEnemy.dead)
-                    {
-                        //if (enemies.Contains(curEnemy))
-                        //{
-                        //    enemies.Remove(curEnemy);
-                        //}
-                        //curTarget = null;
-                        //return;
-                    }
-                    //if (!enemies.Contains(curEnemy))
-                    //{
-                    //    enemies.Add(curEnemy);
-                    //    return;
-                    //}
                 }
             }
-        } 
+        }
+    }
+
+    private float heavyAttackDelay = 0.25f;
+    public int heavyAttackModifier = 2;
+
+    public void HeavyAttack(Collider[] hitColliders)
+    {
+        if (Input.GetButtonDown("HeavyAttack"))
+        {
+            foreach (var hitCollider in hitColliders)
+            {
+                if (hitCollider.transform.tag == opposition)
+                {
+                    EnemyScript curEnemy = hitCollider.transform.GetComponent<EnemyScript>();
+                    Debug.Log("Our hero is attacking");
+                    Attack();
+                    curEnemy.RecieveDamage(dmg* heavyAttackModifier);
+                }
+            }
+        }
     }
 
     public void ReceiveDamage(int dmg)
     {
         health -= dmg;
-        healthText.text = health.ToString();
+        if (healthText != null)
+        {
+            healthText.text = health.ToString();
+        }
     }
 
     public void Move()

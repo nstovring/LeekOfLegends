@@ -71,9 +71,10 @@ public class EnemyScript : Stats {
         GetComponent<Rigidbody>().useGravity = true;
 
         //GetComponent<Rigidbody>().AddForce(new Vector3(15, 50));
-        GetComponent<Rigidbody>().AddExplosionForce(50f, Character.characterTransform.position, 10);
+        GetComponent<Rigidbody>().AddExplosionForce(500f, Character.characterTransform.position, 10);
         dead = true;
         Spawner.SpawnedEnemies.Remove(gameObject);
+        EventHandler.AddPoints(100);
         Destroy(gameObject, 5F);
     }
     public void RecieveDamage(int dmg)
@@ -82,9 +83,24 @@ public class EnemyScript : Stats {
         if(health <= 0)
         {
             OnDeath();
-            
         }
+        StartCoroutine(FlickerColor());
     }
+
+    IEnumerator FlickerColor()
+    {
+        int i = 0;
+        SpriteRenderer sRenderer = GetComponentInChildren<SpriteRenderer>();
+        while (i < 20)
+        {
+            float colorValue = Mathf.PingPong(Time.time, 255);
+            sRenderer.color = new Color(colorValue, 0, 0);
+            yield return new WaitForSeconds(0.1f);
+            i++;
+        }
+        sRenderer.color = Color.white;
+    }
+
     Vector3 VectorSetHeight(Vector3 vector)
     {
         return new Vector3(vector.x, Spawner.spawnHeight, vector.z);

@@ -7,14 +7,21 @@ public class EnemyScript : Stats {
     //NavMeshAgent navMeshAgent;
     bool dead;
     // Use this for initialization
+    public float t;
+    private float startTime;
+    private float journeyLength;
+    public float offsetValue;
+
     void Start () {
-        updateTime = 1;
+        updateTime = 0.1f;
         time = 0;
         //navMeshAgent = GetComponent<NavMeshAgent>();
         //navMeshAgent.SetDestination(Character.characterTransform.position);
         health = 1;
         dead = false;
-	}
+        startTime = Time.time;
+        journeyLength = Vector3.Distance(Character.characterTransform.position, transform.position);
+    }
 
     // Update is called once per frame
     void Update()
@@ -25,7 +32,13 @@ public class EnemyScript : Stats {
             if (time >= updateTime)
             {
                 //navMeshAgent.SetDestination(Character.characterTransform.position);
-                GetComponent<Rigidbody>().AddForce((Character.characterTransform.position - transform.position));
+                //GetComponent<Rigidbody>().AddForce(((Character.characterTransform.position - transform.position)/ Vector3.Distance(Character.characterTransform.position, transform.position)) * movementSpeed * Vector3.Distance(Character.characterTransform.position, transform.position));
+                //GetComponent<Rigidbody>().AddForce((Character.characterTransform.position - transform.position) * movementSpeed);
+                time = 0;
+            }
+            if(Vector3.Distance(Character.characterTransform.position, transform.position) > offsetValue)
+            {
+                StartNewJourney();
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -33,6 +46,14 @@ public class EnemyScript : Stats {
             }
         }
 	}
+    public void StartNewJourney()
+    {
+        Vector3 startPos = transform.position;
+        Vector3 endPos = VectorSetHeight( Character.characterTransform.position - ((Character.characterTransform.position - transform.position) / Vector3.Distance(Character.characterTransform.position, transform.position))*offsetValue);
+        float distCovered = (Time.time - startTime) * movementSpeed;
+        float fracJourney = distCovered / journeyLength;
+        transform.position = Vector3.Lerp(startPos, endPos, fracJourney);
+    }
     public void OnDeath()
     {
         GetComponent<Rigidbody>().isKinematic = false;
@@ -42,6 +63,7 @@ public class EnemyScript : Stats {
         GetComponent<Rigidbody>().AddExplosionForce(50f, Character.characterTransform.position, 10);
         dead = true;
         Spawner.SpawnedEnemies.Remove(gameObject);
+        Destroy(gameObject, 5F);
     }
     public void RecieveDamage(int dmg)
     {
@@ -49,7 +71,11 @@ public class EnemyScript : Stats {
         if(health <= 0)
         {
             OnDeath();
-            Destroy(this, 5f);
+            
         }
+    }
+    Vector3 VectorSetHeight(Vector3 vector)
+    {
+        return new Vector3(vector.x, Spawner.spawnHeight, vector.z);
     }
 }

@@ -11,10 +11,6 @@ public class VisualEffects : MonoBehaviour {
     // Use this for initialization
     void Start () {
         sRenderer = soundEffecTransform.GetComponent<SpriteRenderer>();
-        foreach (var effectSprite in soundEffectSprites)
-	    {
-	        //effectSprite.
-	    }
 	}
 	
 	// Update is called once per frame
@@ -25,7 +21,6 @@ public class VisualEffects : MonoBehaviour {
 
     public IEnumerator DisplaySoundEffectS()
     {
-
         GameObject effect = Instantiate(new GameObject("effect"),soundEffecTransform.position, Quaternion.identity) as GameObject;
         SpriteRenderer newRenderer =  effect.AddComponent<SpriteRenderer>();
         Rigidbody newRigidbody = effect.AddComponent<Rigidbody>();

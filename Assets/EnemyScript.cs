@@ -187,4 +187,9 @@ public class EnemyScript : Stats {
             }
         }
     }
+    public Sprite[] enemyState = new Sprite[3];
+    public void ChangeSprite(Sprite state)
+    {
+        GetComponentInChildren<SpriteRenderer>().sprite = state;
+    }
 }

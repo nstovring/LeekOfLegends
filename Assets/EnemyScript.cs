@@ -127,6 +127,7 @@ public class EnemyScript : Stats {
             }
             rotation = Quaternion.Euler(0, angle, 0);
             GetComponent<Rigidbody>().MovePosition(transform.position + rotation * Vector3.right * Time.deltaTime * movementSpeed);
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         else if (distVector.x < 0)
         {
@@ -137,7 +138,8 @@ public class EnemyScript : Stats {
             }
             rotation = Quaternion.Euler(0, angle, 0);
             GetComponent<Rigidbody>().MovePosition(transform.position + rotation * Vector3.left * Time.deltaTime * movementSpeed);
-            
+
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 }

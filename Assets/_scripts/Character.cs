@@ -22,6 +22,8 @@ public class Character : MonoBehaviour
 
     public Text healthText;
 
+    private VisualEffects vEffects;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -129,6 +131,15 @@ public class Character : MonoBehaviour
         {
             healthText.text = health.ToString();
         }
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        animator.SetInteger("animState", 3);
     }
 
     public void Move()

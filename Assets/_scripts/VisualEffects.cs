@@ -5,7 +5,7 @@ using System.Net.Sockets;
 
 public class VisualEffects : MonoBehaviour {
 
-    List<Sprite> soundEffectSprites = new List<Sprite>(10);
+    public List<Sprite> soundEffectSprites = new List<Sprite>(10);
     public Transform soundEffecTransform;
 	// Use this for initialization
 	void Start () {
@@ -13,8 +13,9 @@ public class VisualEffects : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	void Update ()
+	{
+
 	}
 
     public IEnumerator DisplaySoundEffectS()

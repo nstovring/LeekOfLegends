@@ -11,6 +11,7 @@ public class EnemyScript : Stats {
     private float startTime;
     private float journeyLength;
     public float offsetValue;
+    public AudioClip[] punchLines;
 
     void Start () {
         updateTime = 0.1f;
@@ -40,7 +41,12 @@ public class EnemyScript : Stats {
             {
                 //ToPlayer();
                 //StartNewJourney();
-                GoToPlayer();
+                if (time >= updateTime)
+                {
+                    GoToPlayer(true);
+                    time = 0;
+                }
+                else GoToPlayer(false);
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -78,8 +84,11 @@ public class EnemyScript : Stats {
         dead = true;
         Spawner.SpawnedEnemies.Remove(gameObject);
         EventHandler.AddPoints(100);
+        Death(gameObject);
         Destroy(gameObject, 5F);
     }
+    public delegate void onDeath(GameObject sender);
+    public event onDeath Death;
     public void RecieveDamage(int dmg)
     {
         health -= dmg;
@@ -87,7 +96,7 @@ public class EnemyScript : Stats {
         {
             OnDeath();
         }
-        StartCoroutine(FlickerColor());
+        //StartCoroutine(FlickerColor());
     }
 
     IEnumerator FlickerColor()
@@ -104,15 +113,15 @@ public class EnemyScript : Stats {
     {
         return new Vector3(vector.x, Spawner.spawnHeight, vector.z);
     }
-    public void GoToPlayer()
+    public void GoToPlayer(bool moveOtherWay)
     {
         Vector3 distVector = Character.characterTransform.position - transform.position;
         float angle;
         Quaternion rotation;
-        if(distVector.x >= 0)
+        if (distVector.x >= 0)
         {
             angle = Vector3.Angle(distVector, Vector3.right);
-            if(distVector.z >= 0)
+            if (distVector.z >= 0)
             {
                 angle = -angle;
             }
@@ -128,6 +137,7 @@ public class EnemyScript : Stats {
             }
             rotation = Quaternion.Euler(0, angle, 0);
             GetComponent<Rigidbody>().MovePosition(transform.position + rotation * Vector3.left * Time.deltaTime * movementSpeed);
+            
         }
     }
 }

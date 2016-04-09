@@ -16,12 +16,14 @@ public class WithinRange : MonoBehaviour
     void Start()
     {
         audio = GetComponent<AudioSource>();
-        punch = audio.clip;
+        //punch = audio.clip;
     }
 
     // Update is called once per frame
     private void Update()
     {
+
+      
 
         if (Input.GetKeyUp(KeyCode.L))
         {

@@ -9,14 +9,21 @@ public class Character : MonoBehaviour
     private string opposition = "Enemy";
     public static Transform characterTransform;
     public GameObject attackRangeObject;
-
     public Collider attackRangeCollider;
-    public int health = 100;
+    public int health = 100; 
+    public AudioClip punch;
+    public AudioClip landingClip;
+
+    private AudioSource audio;
+    private float startingPitch = 1;
+    private float startringVolume = 0.7F;
     private Rigidbody rb;
 
 	// Use this for initialization
 	void Start ()
 	{
+        audio = GetComponent<AudioSource>();
+       
         characterTransform = transform;
 	    attackRangeCollider = attackRangeObject.transform.GetComponent<Collider>();
 	    rb = GetComponent<Rigidbody>();
@@ -30,7 +37,12 @@ public class Character : MonoBehaviour
 
     public void Attack()
     {
-        
+        //attack sound
+        float random = Random.Range(1F, 1.5F);
+        float random2 = Random.Range(0.7F, 1F);
+        audio.pitch = random;
+        audio.volume = random2;
+        audio.PlayOneShot(punch);
     }
 
     public int dmg = 5;
@@ -48,6 +60,7 @@ public class Character : MonoBehaviour
                 {
                     EnemyScript curEnemy = hitCollider.transform.GetComponent<EnemyScript>();
                     Debug.Log("Our hero is attacking");
+                    Attack();
                     curEnemy.RecieveDamage(dmg);
 
                     //Check if enemy is alive

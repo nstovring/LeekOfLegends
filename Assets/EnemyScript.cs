@@ -8,7 +8,7 @@ public class EnemyScript : Stats {
     bool dead;
     // Use this for initialization
     void Start () {
-        updateTime = 10;
+        updateTime = 1;
         time = 0;
         //navMeshAgent = GetComponent<NavMeshAgent>();
         //navMeshAgent.SetDestination(Character.characterTransform.position);
@@ -25,7 +25,7 @@ public class EnemyScript : Stats {
             if (time >= updateTime)
             {
                 //navMeshAgent.SetDestination(Character.characterTransform.position);
-                GetComponent<Rigidbody>().AddForce((Character.characterTransform.position - transform.position)/1000);
+                GetComponent<Rigidbody>().AddForce((Character.characterTransform.position - transform.position));
             }
             if (Input.GetKeyDown(KeyCode.E))
             {

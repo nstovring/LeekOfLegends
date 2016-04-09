@@ -27,7 +27,7 @@ public class Spawner : MonoBehaviour {
 
     void CheckIfInRange()
     {
-        if ((Character.characterTransform.position - transform.position).magnitude <= range)
+        if (Vector3.Distance(Character.characterTransform.position,transform.position) <= range)
         {
             StartSpawn(16, 1f,false);
         }
@@ -37,14 +37,14 @@ public class Spawner : MonoBehaviour {
         if (time < wantedTime && interval > wantedInterval)
         {
             int i = (int)Random.Range(0, enemies.Length - 0.1f);
-            GameObject newEnemy = Instantiate(enemies[i], transform.position + ((Character.characterTransform.position - transform.position) / (Character.characterTransform.position - transform.position).magnitude), Quaternion.identity) as GameObject;
+            GameObject newEnemy = Instantiate(enemies[i], transform.position + ((Character.characterTransform.position - transform.position) / (Character.characterTransform.position - transform.position).magnitude)*2, Quaternion.identity) as GameObject;
             SpawnedEnemies.Add(newEnemy);
             interval = 0;
         }
         else if(time > wantedTime)
         {
             int i = (int)Random.Range(0, enemies.Length - 0.1f);
-            GameObject newEnemy = Instantiate(enemies[i], transform.position + ((Character.characterTransform.position - transform.position) / (Character.characterTransform.position - transform.position).magnitude), Quaternion.identity) as GameObject;
+            GameObject newEnemy = Instantiate(enemies[i], transform.position + ((Character.characterTransform.position - transform.position) / (Character.characterTransform.position - transform.position).magnitude)*2, Quaternion.identity) as GameObject;
             SpawnedEnemies.Add(newEnemy);
             interval = 0;
             time = 0;
@@ -56,8 +56,9 @@ public class Spawner : MonoBehaviour {
         if (nEnemies < wantedEnemies && interval > wantedInterval)
         {
             int i = (int)Random.Range(0, enemies.Length - 0.1f);
-            GameObject newEnemy = Instantiate(enemies[i], transform.position + ((Character.characterTransform.position - transform.position) / (Character.characterTransform.position - transform.position).magnitude), Quaternion.identity) as GameObject;
+            GameObject newEnemy = Instantiate(enemies[i], transform.position + ((Character.characterTransform.position - transform.position) / (Character.characterTransform.position - transform.position).magnitude)*2, Quaternion.identity) as GameObject;
             SpawnedEnemies.Add(newEnemy);
+            newEnemy.GetComponent<Rigidbody>().AddForce((Character.characterTransform.position - newEnemy.transform.position)*20);
             interval = 0;
             nEnemies++;
         }

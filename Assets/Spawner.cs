@@ -6,6 +6,11 @@ public class Spawner : MonoBehaviour {
     public float range;
     public GameObject[] enemies;
     public static List<GameObject> SpawnedEnemies;
+
+    public int maxSpawnAmount;
+    [Range(0.1f,2f)]
+    public float spawnInterval;
+
     float time;
     float interval;
     int nEnemies;
@@ -32,7 +37,7 @@ public class Spawner : MonoBehaviour {
     {
         if (Vector3.Distance(Character.characterTransform.position,transform.position) <= range)
         {
-            StartSpawn(32, 2f,false);
+            StartSpawn(maxSpawnAmount, spawnInterval, false);
         }
     }
     void StartSpawn(int wantedTime, float wantedInterval)

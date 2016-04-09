@@ -115,7 +115,11 @@ public class Character : MonoBehaviour
     {
         if (other.transform.tag == "Enemy")
         {
-            ReceiveDamage(1);
+            EnemyScript eScript = other.transform.GetComponent<EnemyScript>();
+            if (!eScript.dead)
+            {
+                ReceiveDamage(1);
+            }
         }
     }
 

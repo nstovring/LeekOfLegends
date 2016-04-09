@@ -5,7 +5,7 @@ public class EnemyScript : Stats {
     float time;
     float updateTime;
     //NavMeshAgent navMeshAgent;
-    bool dead;
+    public bool dead;
     // Use this for initialization
     public float t;
     private float startTime;

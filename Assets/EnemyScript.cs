@@ -38,6 +38,7 @@ public class EnemyScript : Stats {
             }
             if(Vector3.Distance(Character.characterTransform.position, transform.position) > offsetValue)
             {
+                //ToPlayer();
                 StartNewJourney();
             }
             if (Input.GetKeyDown(KeyCode.E))
@@ -49,16 +50,25 @@ public class EnemyScript : Stats {
     public void StartNewJourney()
     {
         Vector3 startPos = transform.position;
-        Vector3 endPos = VectorSetHeight( Character.characterTransform.position - ((Character.characterTransform.position - transform.position) / Vector3.Distance(Character.characterTransform.position, transform.position))*offsetValue);
-        float distCovered = (Time.time - startTime) * movementSpeed;
+        Vector3 endPos = VectorSetHeight( Character.characterTransform.position- ((Character.characterTransform.position - transform.position) / Vector3.Distance(Character.characterTransform.position, transform.position))*offsetValue);
+        journeyLength = Vector3.Distance(Character.characterTransform.position, transform.position);
+        float distCovered = (Time.time - startTime) * movementSpeed * Time.deltaTime;
         float fracJourney = distCovered / journeyLength;
         transform.position = Vector3.Lerp(startPos, endPos, fracJourney);
+    }
+    public void ToPlayer()
+    {
+        //Vector3 Destination = VectorSetHeight((Character.characterTransform.position - transform.position) - ((Character.characterTransform.position - transform.position) / Vector3.Distance(Character.characterTransform.position, transform.position)) * offsetValue);
+        Vector3 Destination = VectorSetHeight(Character.characterTransform.position - transform.position);
+        GetComponent<Rigidbody>().MovePosition(transform.position +((Destination/Destination.magnitude)* Time.deltaTime* movementSpeed));
+        //Debug.Log(((Character.characterTransform.position - transform.position) / Vector3.Distance(Character.characterTransform.position, transform.position)).magnitude);
     }
     public void OnDeath()
     {
         GetComponent<Rigidbody>().isKinematic = false;
         //Destroy(navMeshAgent);
         GetComponent<Rigidbody>().useGravity = true;
+
         //GetComponent<Rigidbody>().AddForce(new Vector3(15, 50));
         GetComponent<Rigidbody>().AddExplosionForce(50f, Character.characterTransform.position, 10);
         dead = true;

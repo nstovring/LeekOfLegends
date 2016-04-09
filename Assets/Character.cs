@@ -33,11 +33,12 @@ public class Character : MonoBehaviour
     }
 
     public int dmg = 5;
-
+    private Vector3 colliderBoxPos;
+    public Vector3 colliderBoxSize;
     public void GetEnemyCollision()
     {
-        Vector3 colliderBoxPos = transform.position + transform.forward* range;
-        Collider[] hitColliders = Physics.OverlapBox(colliderBoxPos, new Vector3(0.7f, 1, 0.7f));
+        colliderBoxPos = transform.position + transform.forward* range;
+        Collider[] hitColliders = Physics.OverlapBox(colliderBoxPos, colliderBoxSize/2);
         if (Input.GetButtonDown("Attack"))
         {
             foreach (var hitCollider in hitColliders)
@@ -84,5 +85,10 @@ public class Character : MonoBehaviour
             Quaternion turnLeft = Quaternion.Euler(new Vector3(0, -90, 0));
             transform.rotation = turnLeft;
         }
+    }
+
+    public void OnDrawGizmos()
+    {
+        Gizmos.DrawCube(colliderBoxPos, colliderBoxSize);
     }
 }

@@ -46,6 +46,7 @@ public class Character : MonoBehaviour
                 if (hitCollider.transform.tag == opposition)
                 {
                     EnemyScript curEnemy = hitCollider.transform.GetComponent<EnemyScript>();
+                    Debug.Log("Our hero is attacking");
                     curEnemy.RecieveDamage(dmg);
 
                     //Check if enemy is alive

@@ -19,7 +19,7 @@ public class LevelGenerator : MonoBehaviour
 	    if (Vector3.Distance(transform.position, lastSpawnPos) >= 25)
 	    {
 	        lastSpawnPos = transform.position;
-            newSpawnPos = new Vector3(lastSpawnPos.x + 25, lastSpawnPos.y, lastSpawnPos.z);
+            newSpawnPos = new Vector3(lastSpawnPos.x + 24.9f, lastSpawnPos.y, lastSpawnPos.z);
             Instantiate(levelChunck, newSpawnPos, Quaternion.identity);
 	    }
 	}

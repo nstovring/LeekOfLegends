@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class Character : MonoBehaviour
     private float startingPitch = 1;
     private float startringVolume = 0.7F;
     private Rigidbody rb;
+
+    public Text healthText;
 
 	// Use this for initialization
 	void Start ()
@@ -86,6 +89,7 @@ public class Character : MonoBehaviour
     public void ReceiveDamage(int dmg)
     {
         health -= dmg;
+        healthText.text = health.ToString();
     }
 
     public void Move()

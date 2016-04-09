@@ -110,17 +110,6 @@ public class EnemyScript : Stats {
         {
             OnDeath();
         }
-        //StartCoroutine(FlickerColor());
-    }
-
-    IEnumerator FlickerColor()
-    {
-        SpriteRenderer sRenderer = GetComponentInChildren<SpriteRenderer>();
-       
-            float colorValue = Mathf.PingPong(Time.time, 255);
-            sRenderer.color = new Color(colorValue, 0, 0);
-            yield return new WaitForSeconds(0.1f);
-        //sRenderer.color = Color.white;
     }
 
     Vector3 VectorSetHeight(Vector3 vector)

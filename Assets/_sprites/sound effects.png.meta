@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 4d5f0fb015412e144ba7fcdf57289b3f
-timeCreated: 1460236644
+timeCreated: 1460242723
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -70,7 +70,7 @@ TextureImporter:
         width: 97
         height: 73
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -48.5, y: -34.5}
@@ -89,7 +89,7 @@ TextureImporter:
         width: 118
         height: 73
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 55, y: 36.5}
@@ -106,7 +106,7 @@ TextureImporter:
         width: 173
         height: 94
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 16.5, y: 47}
@@ -142,7 +142,7 @@ TextureImporter:
         width: 150
         height: 84
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -38, y: 42}
@@ -160,7 +160,7 @@ TextureImporter:
         width: 142
         height: 89
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -58, y: 44.5}
@@ -179,7 +179,7 @@ TextureImporter:
         width: 196
         height: 103
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -13, y: -36.5}
@@ -204,50 +204,45 @@ TextureImporter:
     - name: sound effects_6
       rect:
         serializedVersion: 2
-        x: 63
+        x: 58
         y: 347
-        width: 157
+        width: 176
         height: 83
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -78.5, y: 41.5}
-        - {x: -78.5, y: -35.5}
-        - {x: -76.5, y: -41.5}
-        - {x: 67.5, y: -41.5}
-        - {x: 78.5, y: -32.5}
-        - {x: 78.5, y: 32.5}
-        - {x: 60.5, y: 41.5}
-      - - {x: -77.5, y: -26.5}
-        - {x: -78.5, y: -27.5}
-        - {x: -78.5, y: -41.5}
-        - {x: -74.5, y: -41.5}
-        - {x: -69.5, y: -38.5}
-        - {x: -69.5, y: -30.5}
-        - {x: -70.5, y: -27.5}
-      - - {x: 21.5, y: -38.5}
-        - {x: 24.5, y: -37.5}
-        - {x: 24.5, y: -34.5}
-        - {x: 21.5, y: -33.5}
-        - {x: 19.5, y: -35.5}
-      - - {x: 74.5, y: 36.5}
-        - {x: 74.5, y: 30.5}
-        - {x: 75.5, y: 26.5}
-        - {x: 78.5, y: 26.5}
-        - {x: 78.5, y: 37.5}
-        - {x: 77.5, y: 37.5}
-    - name: sound effects_7
-      rect:
-        serializedVersion: 2
-        x: 218
-        y: 409
-        width: 15
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      - - {x: -75, y: 41.5}
+        - {x: -85, y: 28.5}
+        - {x: -85, y: -6.5}
+        - {x: -83, y: -13.5}
+        - {x: -74, y: -34.5}
+        - {x: -64, y: -41.5}
+        - {x: 76, y: -41.5}
+        - {x: 76, y: 33.5}
+        - {x: 55, y: 41.5}
+      - - {x: -87, y: -26.5}
+        - {x: -88, y: -28.5}
+        - {x: -88, y: -38.5}
+        - {x: -84, y: -41.5}
+        - {x: -76, y: -41.5}
+        - {x: -74, y: -37.5}
+        - {x: -74, y: -28.5}
+        - {x: -81, y: -26.5}
+      - - {x: 17, y: -38.5}
+        - {x: 20, y: -37.5}
+        - {x: 20, y: -34.5}
+        - {x: 17, y: -33.5}
+        - {x: 15, y: -35.5}
+      - - {x: 71, y: 38.5}
+        - {x: 70, y: 37.5}
+        - {x: 70, y: 27.5}
+        - {x: 71, y: 21.5}
+        - {x: 72, y: 18.5}
+        - {x: 82, y: 18.5}
+        - {x: 88, y: 21.5}
+        - {x: 88, y: 36.5}
+        - {x: 83, y: 38.5}
     - name: sound effects_8
       rect:
         serializedVersion: 2
@@ -256,7 +251,7 @@ TextureImporter:
         width: 121
         height: 65
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -41.5, y: 32.5}
@@ -288,7 +283,7 @@ TextureImporter:
         width: 117
         height: 97
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -58.5, y: 48.5}
@@ -307,7 +302,7 @@ TextureImporter:
         width: 135
         height: 69
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 32.5, y: 30.5}
@@ -320,17 +315,6 @@ TextureImporter:
         - {x: 67.5, y: -23.5}
         - {x: 67.5, y: 0.5}
         - {x: 63.5, y: 18.5}
-    - name: sound effects_11
-      rect:
-        serializedVersion: 2
-        x: 59
-        y: 349
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
     outline: []
   spritePackingTag: 
   userData: 

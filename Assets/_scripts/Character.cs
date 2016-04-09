@@ -149,6 +149,6 @@ public class Character : MonoBehaviour
 
     public void OnDrawGizmos()
     {
-        Gizmos.DrawCube(colliderBoxPos, colliderBoxSize);
+       // Gizmos.DrawCube(colliderBoxPos, colliderBoxSize);
     }
 }

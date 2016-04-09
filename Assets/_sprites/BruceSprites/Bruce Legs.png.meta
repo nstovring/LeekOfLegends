@@ -1,9 +1,12 @@
 fileFormatVersion: 2
 guid: 1e73012b1186e28478ac776760d24206
-timeCreated: 1460225867
+timeCreated: 1460227377
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Bruce Legs_0
+    21300002: Bruce Legs_1
+    21300004: Bruce Legs_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,26 +33,182 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
-    wrapMode: -1
-  nPOTScale: 1
+    wrapMode: 1
+  nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
-  alphaIsTransparency: 0
-  textureType: -1
+  alphaIsTransparency: 1
+  textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Bruce Legs_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 176
+        width: 128
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 8}
+        - {x: -30, y: -8}
+        - {x: -30, y: -21}
+        - {x: -13, y: -21}
+        - {x: -10, y: -14}
+        - {x: -10, y: 8}
+      - - {x: 35, y: 7}
+        - {x: 27, y: 4}
+        - {x: 27, y: -21}
+        - {x: 52, y: -21}
+        - {x: 64, y: -16}
+        - {x: 64, y: 6}
+        - {x: 58, y: 7}
+      - - {x: 9, y: 1}
+        - {x: 2, y: -12}
+        - {x: 2, y: -18}
+        - {x: 7, y: -20}
+        - {x: 16, y: -20}
+        - {x: 18, y: -17}
+        - {x: 18, y: 1}
+      - - {x: -51, y: 16}
+        - {x: -55, y: 13}
+        - {x: -64, y: 12}
+        - {x: -64, y: 0}
+        - {x: -63, y: -2}
+        - {x: -55, y: -1}
+        - {x: -54, y: -8}
+        - {x: -50, y: -19}
+        - {x: -37, y: -19}
+        - {x: -33, y: -18}
+        - {x: -26, y: 3}
+        - {x: -26, y: 9}
+        - {x: -35, y: 16}
+    - name: Bruce Legs_1
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 96
+        width: 128
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: -20}
+        - {x: -9, y: -20}
+        - {x: -5, y: -19}
+        - {x: -5, y: -7}
+        - {x: -7, y: 4}
+        - {x: -10, y: 6}
+        - {x: -18, y: 6}
+        - {x: -20, y: 2}
+      - - {x: 4, y: 4}
+        - {x: -2, y: -7}
+        - {x: -2, y: -14}
+        - {x: 4, y: -20}
+        - {x: 13, y: -20}
+        - {x: 13, y: 4}
+      - - {x: 17, y: -19}
+        - {x: 18, y: -20}
+        - {x: 34, y: -20}
+        - {x: 34, y: -9}
+        - {x: 29, y: 3}
+        - {x: 19, y: 3}
+        - {x: 17, y: 2}
+      - - {x: 31, y: 9}
+        - {x: 31, y: 0}
+        - {x: 34, y: -8}
+        - {x: 40, y: -20}
+        - {x: 53, y: -20}
+        - {x: 56, y: -16}
+        - {x: 56, y: -8}
+        - {x: 45, y: 9}
+      - - {x: -45, y: 14}
+        - {x: -64, y: 5}
+        - {x: -64, y: -7}
+        - {x: -54, y: -13}
+        - {x: -46, y: -16}
+        - {x: -31, y: -16}
+        - {x: -26, y: -15}
+        - {x: -21, y: 3}
+        - {x: -21, y: 12}
+        - {x: -23, y: 14}
+    - name: Bruce Legs_2
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 16
+        width: 128
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -30, y: 10}
+        - {x: -41, y: -5}
+        - {x: -41, y: -12}
+        - {x: -37, y: -19}
+        - {x: -33, y: -19}
+        - {x: -30, y: -18}
+        - {x: -28, y: -17}
+        - {x: -27, y: -14}
+        - {x: -27, y: -8}
+        - {x: -26, y: -7}
+        - {x: -23, y: 1}
+        - {x: -23, y: 2}
+        - {x: -23, y: -3}
+        - {x: -24, y: -4}
+        - {x: -27, y: -11}
+        - {x: -27, y: -17}
+        - {x: -25, y: -19}
+        - {x: -18, y: -19}
+        - {x: -12, y: -16}
+        - {x: -11, y: -10}
+        - {x: -11, y: 8}
+        - {x: -19, y: 10}
+      - - {x: 17, y: 3}
+        - {x: 9, y: -8}
+        - {x: 9, y: -15}
+        - {x: 11, y: -19}
+        - {x: 25, y: -19}
+        - {x: 26, y: -18}
+        - {x: 26, y: 2}
+        - {x: 22, y: 3}
+      - - {x: 54, y: -15}
+        - {x: 64, y: -9}
+        - {x: 64, y: 4}
+        - {x: 46, y: 10}
+        - {x: 31, y: 10}
+        - {x: 29, y: 7}
+        - {x: 29, y: -5}
+        - {x: 30, y: -14}
+        - {x: 37, y: -19}
+        - {x: 43, y: -19}
+        - {x: 48, y: -16}
+        - {x: 47, y: -12}
+        - {x: 46, y: -10}
+        - {x: 50, y: -14}
+      - - {x: -59, y: -6}
+        - {x: -51, y: -10}
+        - {x: -44, y: -10}
+        - {x: -30, y: 5}
+        - {x: -30, y: 15}
+        - {x: -41, y: 15}
+        - {x: -59, y: 8}
     outline: []
   spritePackingTag: 
   userData: 

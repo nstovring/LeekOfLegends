@@ -12,6 +12,8 @@ public class EnemyScript : Stats {
     private float journeyLength;
     public float offsetValue;
     public AudioClip[] punchLines;
+    public AudioClip[] deathSounds;
+    AudioSource audio;
 
     void Start () {
         updateTime = 0.1f;
@@ -22,6 +24,7 @@ public class EnemyScript : Stats {
         dead = false;
         startTime = Time.time;
         journeyLength = Vector3.Distance(Character.characterTransform.position, transform.position);
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -85,6 +88,7 @@ public class EnemyScript : Stats {
         Spawner.SpawnedEnemies.Remove(gameObject);
         EventHandler.AddPoints(100);
         Death(gameObject);
+        ChooseSound();
         Destroy(gameObject, 5F);
     }
     public delegate void onDeath(GameObject sender);
@@ -169,6 +173,20 @@ public class EnemyScript : Stats {
             GetComponent<Rigidbody>().MovePosition(transform.position + rotation * Vector3.left * Time.deltaTime * movementSpeed);
 
             transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+    }
+    public void ChooseSound()
+    {
+        if (deathSounds.Length > 0)
+        {
+            float procChance = 10;
+            float procRoll = Random.Range(0, 100);
+            if (procRoll < procChance)
+            {
+                int chooseSong = (int)Random.Range(0, deathSounds.Length - 0.1f);
+                audio.PlayOneShot(deathSounds[chooseSong]);
+                Debug.Log("playing deathsound");
+            }
         }
     }
 }

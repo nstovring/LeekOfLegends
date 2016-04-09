@@ -29,7 +29,7 @@ public class Character : MonoBehaviour
 	{
         audio = GetComponent<AudioSource>();
 	    animator = GetComponentInChildren<Animator>();
-
+	    vEffects = GetComponent<VisualEffects>();
         characterTransform = transform;
 	    rb = GetComponent<Rigidbody>();
 	}
@@ -85,7 +85,7 @@ public class Character : MonoBehaviour
     {
         if (Input.GetButtonDown("Attack"))
         {
-
+            vEffects.StartCoroutine("DisplaySoundEffectS");
             //animation switch
             animSwitch *= -1;
             Debug.Log(animSwitch);

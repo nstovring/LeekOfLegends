@@ -24,5 +24,6 @@ public class VisualEffects : MonoBehaviour {
         sRenderer.sprite = soundEffectSprites[Random.Range(0, soundEffectSprites.Count)];
         yield return new WaitForSeconds(0.5f);
         sRenderer.sprite = null;
+        StopCoroutine("DisplaySoundEffects");
     }
 }

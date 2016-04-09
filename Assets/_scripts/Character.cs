@@ -12,6 +12,7 @@ public class Character : MonoBehaviour
     public int health = 100; 
     public AudioClip punch;
     public AudioClip landingClip;
+    public Animator animator;
 
     private AudioSource audio;
     private float startingPitch = 1;
@@ -24,7 +25,8 @@ public class Character : MonoBehaviour
 	void Start ()
 	{
         audio = GetComponent<AudioSource>();
-       
+        animator = GetComponent<Animator>();
+
         characterTransform = transform;
 	    rb = GetComponent<Rigidbody>();
 	}

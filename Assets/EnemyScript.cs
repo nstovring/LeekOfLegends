@@ -11,7 +11,7 @@ public class EnemyScript : Stats {
         updateTime = 1;
         time = 0;
         navMeshAgent = GetComponent<NavMeshAgent>();
-        navMeshAgent.SetDestination(HeroScript.hero.position);
+        navMeshAgent.SetDestination(Character.characterTransform.position);
         health = 10;
         dead = false;
 	}
@@ -24,29 +24,29 @@ public class EnemyScript : Stats {
             time += Time.deltaTime;
             if (time >= updateTime)
             {
-                navMeshAgent.SetDestination(HeroScript.hero.position);
+                navMeshAgent.SetDestination(Character.characterTransform.position);
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
-                onDeath();
+                OnDeath();
             }
         }
 	}
-    public void onDeath()
+    public void OnDeath()
     {
         GetComponent<Rigidbody>().isKinematic = false;
         Destroy(navMeshAgent);
         GetComponent<Rigidbody>().useGravity = true;
         //GetComponent<Rigidbody>().AddForce(new Vector3(15, 50));
-        GetComponent<Rigidbody>().AddExplosionForce(50f, HeroScript.hero.position, 10);
+        GetComponent<Rigidbody>().AddExplosionForce(50f, Character.characterTransform.position, 10);
         dead = true;
     }
-    public void recieveDamage(int dmg)
+    public void RecieveDamage(int dmg)
     {
         health -= dmg;
         if(health <= 0)
         {
-            onDeath();
+            OnDeath();
             Destroy(this, 5f);
         }
     }

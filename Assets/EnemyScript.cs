@@ -14,8 +14,10 @@ public class EnemyScript : Stats {
     public AudioClip[] punchLines;
     public AudioClip[] deathSounds;
     AudioSource audio;
+    float destroyTimer;
 
     void Start () {
+        destroyTimer = 0;
         updateTime = 0.1f;
         time = 0;
         //navMeshAgent = GetComponent<NavMeshAgent>();
@@ -50,6 +52,14 @@ public class EnemyScript : Stats {
                     time = 0;
                 }
                 else GoToPlayer(false);
+            }
+            if(transform.position.y < Character.characterTransform.position.y - 0.1 || transform.position.y > Character.characterTransform.position.y + 0.1)
+            {
+                destroyTimer += Time.deltaTime;
+                if(destroyTimer >= 5)
+                {
+                    OnDeath();
+                }
             }
             if (Input.GetKeyDown(KeyCode.E))
             {

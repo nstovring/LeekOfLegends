@@ -5,33 +5,47 @@ public class WithinRange : MonoBehaviour
 {
     int dmg = 5;
     private AudioSource audio;
-    private AudioClip clip ;
+    public AudioClip punch ;
+    public AudioClip landingClip;
     private float startingPitch = 1;
     private float startringVolume = 0.7F;
+    private float time = 1;
+ 
     
 
     void Start()
     {
         audio = GetComponent<AudioSource>();
-        clip = audio.clip;
+        punch = audio.clip;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        //sound script in use
-        if (Input.GetKeyUp(KeyCode.Space))
+
+        if (Input.GetKeyUp(KeyCode.L))
+        {
+            AudioSource.PlayClipAtPoint(landingClip, transform.position);
+        }
+
+
+            //punching sound
+            if (Input.GetKeyUp(KeyCode.Space))
         {
 
             float random = Random.Range(1F, 1.5F);
             float random2 = Random.Range(0.7F, 1F);
-            
+
             audio.pitch = random;
             audio.volume = random2;
 
-            audio.PlayOneShot(clip);
+            audio.PlayOneShot(punch);
         }
+
     }
+
+ 
+  
 
     void OnTriggerStay(Collider other)
     {
@@ -43,9 +57,9 @@ public class WithinRange : MonoBehaviour
             audio.pitch = random;
             audio.volume = random2;
 
-            audio.PlayOneShot(clip);
+            audio.PlayOneShot(punch);
 
-            GetComponent<AudioSource>().PlayOneShot(clip);
+            GetComponent<AudioSource>().PlayOneShot(punch);
        
         }
     }

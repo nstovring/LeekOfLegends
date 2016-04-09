@@ -4,15 +4,15 @@ using System.Collections;
 public class EnemyScript : Stats {
     float time;
     float updateTime;
-    NavMeshAgent navMeshAgent;
+    //NavMeshAgent navMeshAgent;
     bool dead;
     // Use this for initialization
     void Start () {
-        updateTime = 1;
+        updateTime = 10;
         time = 0;
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        navMeshAgent.SetDestination(Character.characterTransform.position);
-        health = 10;
+        //navMeshAgent = GetComponent<NavMeshAgent>();
+        //navMeshAgent.SetDestination(Character.characterTransform.position);
+        health = 1;
         dead = false;
 	}
 
@@ -24,7 +24,8 @@ public class EnemyScript : Stats {
             time += Time.deltaTime;
             if (time >= updateTime)
             {
-                navMeshAgent.SetDestination(Character.characterTransform.position);
+                //navMeshAgent.SetDestination(Character.characterTransform.position);
+                GetComponent<Rigidbody>().AddForce((Character.characterTransform.position - transform.position)/1000);
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -35,11 +36,12 @@ public class EnemyScript : Stats {
     public void OnDeath()
     {
         GetComponent<Rigidbody>().isKinematic = false;
-        Destroy(navMeshAgent);
+        //Destroy(navMeshAgent);
         GetComponent<Rigidbody>().useGravity = true;
         //GetComponent<Rigidbody>().AddForce(new Vector3(15, 50));
         GetComponent<Rigidbody>().AddExplosionForce(50f, Character.characterTransform.position, 10);
         dead = true;
+        Spawner.SpawnedEnemies.Remove(gameObject);
     }
     public void RecieveDamage(int dmg)
     {

@@ -1,0 +1,301 @@
+fileFormatVersion: 2
+guid: aecc831958274b143ac815e802748fd3
+timeCreated: 1460235675
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Puddles_0
+    21300002: Puddles_1
+    21300004: Puddles_2
+    21300006: Puddles_3
+    21300008: Puddles_4
+    21300010: Puddles_5
+    21300012: Puddles_6
+    21300014: Puddles_7
+    21300016: Puddles_8
+    21300018: Puddles_9
+    21300020: Puddles_10
+    21300022: Puddles_11
+    21300024: Puddles_12
+    21300026: Puddles_13
+    21300028: Puddles_14
+    21300030: Puddles_15
+    21300032: Puddles_16
+    21300034: Puddles_17
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Puddles_0
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 461
+        width: 242
+        height: 101
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 32}
+        - {x: -36, y: 37}
+        - {x: -78, y: 37}
+        - {x: -96, y: 36}
+        - {x: -113, y: 29}
+        - {x: -121, y: 24}
+        - {x: -121, y: 10}
+        - {x: -72, y: 0}
+        - {x: 11, y: 0}
+        - {x: 11, y: 15}
+        - {x: 4, y: 18}
+      - - {x: 109, y: 48}
+        - {x: 105, y: 49}
+        - {x: 82, y: 49}
+        - {x: 55, y: 47}
+        - {x: 52, y: 40}
+        - {x: 52, y: 32}
+        - {x: 61, y: 28}
+        - {x: 73, y: 27}
+        - {x: 93, y: 27}
+        - {x: 105, y: 29}
+        - {x: 110, y: 33}
+        - {x: 110, y: 44}
+      - - {x: -66, y: 101}
+        - {x: -90, y: 98}
+        - {x: -90, y: 71}
+        - {x: -79, y: 52}
+        - {x: -65, y: 43}
+        - {x: 74, y: 43}
+        - {x: 121, y: 71}
+        - {x: 121, y: 97}
+        - {x: 114, y: 101}
+    - name: Puddles_4
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 470
+        width: 184
+        height: 106
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -79, y: 18}
+        - {x: -79, y: 2}
+        - {x: -76, y: 0}
+        - {x: -32, y: 0}
+        - {x: -30, y: 3}
+        - {x: -30, y: 18}
+      - - {x: -83, y: 72}
+        - {x: -92, y: 59}
+        - {x: -92, y: 16}
+        - {x: -64, y: 0}
+        - {x: 72, y: 0}
+        - {x: 77, y: 2}
+        - {x: 77, y: 68}
+        - {x: 40, y: 72}
+      - - {x: 74, y: 106}
+        - {x: -7, y: 106}
+        - {x: -9, y: 105}
+        - {x: -16, y: 99}
+        - {x: -17, y: 91}
+        - {x: -17, y: 76}
+        - {x: -15, y: 74}
+        - {x: 40, y: 74}
+        - {x: 84, y: 85}
+        - {x: 88, y: 88}
+        - {x: 88, y: 104}
+    - name: Puddles_5
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 308
+        width: 268
+        height: 115
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 43, y: 17}
+        - {x: 38, y: 12}
+        - {x: 38, y: 5}
+        - {x: 44, y: 0}
+        - {x: 84, y: 0}
+        - {x: 91, y: 4}
+        - {x: 91, y: 16}
+        - {x: 85, y: 17}
+      - - {x: -88, y: 39}
+        - {x: -94, y: 31}
+        - {x: -94, y: 18}
+        - {x: -92, y: 13}
+        - {x: -44, y: 0}
+        - {x: 5, y: 0}
+        - {x: 15, y: 1}
+        - {x: 18, y: 5}
+        - {x: 18, y: 22}
+        - {x: 14, y: 39}
+      - - {x: -122, y: 115}
+        - {x: -134, y: 108}
+        - {x: -134, y: 38}
+        - {x: -67, y: 29}
+        - {x: 134, y: 29}
+        - {x: 134, y: 88}
+        - {x: 105, y: 115}
+    - name: Puddles_6
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 317
+        width: 233
+        height: 98
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15.5, y: 20}
+        - {x: 15.5, y: 2}
+        - {x: 18.5, y: 1}
+        - {x: 70.5, y: 1}
+        - {x: 72.5, y: 6}
+        - {x: 72.5, y: 20}
+      - - {x: 68.5, y: 58}
+        - {x: 14.5, y: 79}
+        - {x: -98.5, y: 79}
+        - {x: -116.5, y: 52}
+        - {x: -116.5, y: 29}
+        - {x: -97.5, y: 26}
+        - {x: 23.5, y: 26}
+        - {x: 74.5, y: 32}
+        - {x: 75.5, y: 33}
+        - {x: 75.5, y: 49}
+      - - {x: 22.5, y: 97}
+        - {x: 22.5, y: 71}
+        - {x: 100.5, y: 71}
+        - {x: 116.5, y: 74}
+        - {x: 116.5, y: 97}
+    - name: Puddles_11
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 81
+        width: 310
+        height: 156
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 100, y: 23}
+        - {x: 100, y: 11}
+        - {x: 101, y: 6}
+        - {x: 143, y: 6}
+        - {x: 147, y: 9}
+        - {x: 147, y: 23}
+      - - {x: 5, y: 42}
+        - {x: -18, y: 37}
+        - {x: -18, y: 18}
+        - {x: -13, y: 13}
+        - {x: -1, y: 12}
+        - {x: 88, y: 12}
+        - {x: 103, y: 18}
+        - {x: 103, y: 37}
+        - {x: 101, y: 42}
+      - - {x: 74, y: 70}
+        - {x: 58, y: 61}
+        - {x: 58, y: 49}
+        - {x: 62, y: 45}
+        - {x: 155, y: 45}
+        - {x: 155, y: 70}
+      - - {x: -101, y: 155}
+        - {x: -137, y: 142}
+        - {x: -155, y: 130}
+        - {x: -155, y: 83}
+        - {x: -79, y: 72}
+        - {x: 125, y: 72}
+        - {x: 125, y: 136}
+        - {x: 100, y: 155}
+    - name: Puddles_17
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 43
+        width: 212
+        height: 138
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -106, y: 9}
+        - {x: -92, y: 4}
+        - {x: -54, y: 1}
+        - {x: -47, y: 0}
+        - {x: 101, y: 0}
+        - {x: 106, y: 12}
+        - {x: 106, y: 70}
+        - {x: -50, y: 70}
+        - {x: -106, y: 63}
+      - - {x: 61, y: 103}
+        - {x: 1, y: 113}
+        - {x: -50, y: 113}
+        - {x: -91, y: 95}
+        - {x: -91, y: 80}
+        - {x: -52, y: 74}
+        - {x: 18, y: 74}
+        - {x: 60, y: 81}
+        - {x: 65, y: 85}
+        - {x: 65, y: 93}
+      - - {x: 9, y: 126}
+        - {x: 9, y: 119}
+        - {x: 10, y: 115}
+        - {x: 88, y: 115}
+        - {x: 96, y: 117}
+        - {x: 96, y: 129}
+        - {x: 93, y: 131}
+        - {x: 30, y: 131}
+        - {x: 15, y: 130}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

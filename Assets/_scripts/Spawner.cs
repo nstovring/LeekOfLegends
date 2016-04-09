@@ -19,7 +19,7 @@ public class Spawner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         nEnemies = 0;
-        spawnHeight = 0.5f;
+        spawnHeight = 0.57f;
         SpawnedEnemies = new List<GameObject>();
         range = 10;
         time = 0;

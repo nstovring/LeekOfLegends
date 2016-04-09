@@ -21,7 +21,7 @@ public class Spawner : MonoBehaviour {
         nEnemies = 0;
         spawnHeight = 0.57f;
         SpawnedEnemies = new List<GameObject>();
-        range = 10;
+        //range = 10;
         time = 0;
         interval = 0;
 	}

@@ -18,8 +18,11 @@ public class CameraFollow : MonoBehaviour
 
     void FixedUpdate()
     {
+        SpriteRenderer sRenderer = MoveArrow.GetComponent<SpriteRenderer>();
+
         if (Spawner.SpawnedEnemies.Count <= 0)
         {
+            FlickerColor(sRenderer);
             if (target.position.x > transform.position.x)
             {
                 // Create a postion the camera is aiming for based on the offset from the target.
@@ -28,24 +31,21 @@ public class CameraFollow : MonoBehaviour
                 // Smoothly interpolate between the camera's current position and it's target position.
                 Vector3 newXPos = Vector3.Lerp(transform.position, targetCamPos, smoothing*Time.deltaTime);
                 transform.position = new Vector3(newXPos.x, transform.position.y, transform.position.z);
-                FlickerColor();
             }
-
         }
-        //else
-        //{
-            
-        //}
+        else
+        {
+            sRenderer.color = new Color(0,0,0, 0);
+        }
     }
 
-    void FlickerColor()
+    void FlickerColor(SpriteRenderer sRenderer)
     {
         //int i = 0;
-        SpriteRenderer sRenderer = MoveArrow.GetComponent<SpriteRenderer>();
         //while (i < 20)
         {
-            float colorValue = Mathf.PingPong(Time.time, 255);
-            sRenderer.color = new Color(colorValue, 0, 0);
+            float colorValue = Mathf.Sin(Time.time * 5) ;//Mathf.PingPong(Time.time, 255);
+            sRenderer.color = new Color(255, 0, 0,colorValue);
             //yield return new WaitForSeconds(0.1f);
             //i++;
         }

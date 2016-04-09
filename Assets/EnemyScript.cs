@@ -185,7 +185,6 @@ public class EnemyScript : Stats {
             {
                 int chooseSong = (int)Random.Range(0, deathSounds.Length - 0.1f);
                 audio.PlayOneShot(deathSounds[chooseSong]);
-                Debug.Log("playing deathsound");
             }
         }
     }

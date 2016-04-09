@@ -30,11 +30,10 @@ public class SoundEventHandler : MonoBehaviour {
         prefab_punchline = other.GetComponent<EnemyScript>().punchLines;
         float procChance = 10;
         float procRoll = Random.Range(0, 100);
-        if(procRoll < procChance && !isPlayingMusic)
+        if(procRoll < procChance && !isPlayingMusic && general_punchlines.Length > 0)
         {
             int chooseSong = (int)Random.Range(0, prefab_punchline.Length - 0.1f);
             playMusic(general_punchlines[chooseSong]);
-            Debug.Log("NOW PLAYING GENERAL SOUND");
             isPlayingMusic = true;
         }
 
@@ -44,7 +43,6 @@ public class SoundEventHandler : MonoBehaviour {
         {
             int chooseSong = (int)Random.Range(0, prefab_punchline.Length - 0.1f);
             playMusic(prefab_punchline[chooseSong]);
-            Debug.Log("NOW PLAYING PREFAB SOUND");
             isPlayingMusic = true;
         }
     }

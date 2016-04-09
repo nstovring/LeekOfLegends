@@ -64,7 +64,8 @@ public class Spawner : MonoBehaviour {
         if (nEnemies < wantedEnemies && interval > wantedInterval)
         {
             int i = (int)Random.Range(0, enemies.Length - 0.1f);
-            GameObject newEnemy = Instantiate(enemies[i], transform.position + new Vector3(-1.5f, 0, 0) + new Vector3(Random.Range(0, 0.2f),0, Random.Range(-spawnRange, spawnRange)), Quaternion.identity) as GameObject;
+            Vector3 addedDist = checkIfWithinRange(transform.position);
+            GameObject newEnemy = Instantiate(enemies[i], transform.position + addedDist, Quaternion.identity) as GameObject;
             newEnemy.GetComponent<EnemyScript>().Death += SoundEventHandler.soundEventHandler.whichMusic;
             SpawnedEnemies.Add(newEnemy);
             newEnemy.GetComponent<Rigidbody>().AddForce(((Character.characterTransform.position - newEnemy.transform.position)/Vector3.Distance(Character.characterTransform.position,newEnemy.transform.position))* newEnemy.GetComponent<EnemyScript>().movementSpeed);
@@ -81,5 +82,17 @@ public class Spawner : MonoBehaviour {
     void moveSpawner(Vector3 movement)
     {
         transform.position += movement;
+    }
+    Vector3 checkIfWithinRange(Vector3 position)
+    {
+        Vector3 addedDist = new Vector3(-1.5f, 0, 0) + new Vector3(Random.Range(0, 0.2f), 0, Random.Range(-spawnRange, spawnRange));
+        foreach (GameObject g in SpawnedEnemies)
+        {
+            if(Vector3.Distance(g.transform.position, position + addedDist) < 0.1)
+            {
+                return checkIfWithinRange(position);
+            }
+        }
+        return addedDist;
     }
 }

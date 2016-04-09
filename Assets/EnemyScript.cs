@@ -87,7 +87,7 @@ public class EnemyScript : Stats {
         {
             OnDeath();
         }
-        StartCoroutine(FlickerColor());
+        //StartCoroutine(FlickerColor());
     }
 
     IEnumerator FlickerColor()

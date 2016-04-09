@@ -13,22 +13,21 @@ public class Flashing : MonoBehaviour
 	// Use this for initialization
 	void Start () {
 
-        if(changeScene)
-        SceneManager.LoadScene(1);
+	    
 
     }
 	
 	// Update is called once per frame
 	void Update () {
-	
-        
+        if (Input.GetButtonDown("Attack"))
+        {
+            SceneManager.LoadScene(1);
+        }
+
+
         text.color = new Color(Mathf.Sin(Time.time)*1.5F,0,0);
 	}
 
-    public void sceneChanging()
-    {
-        changeScene = true;
-    }
     
    
 }

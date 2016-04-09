@@ -8,10 +8,10 @@ public class LevelGenerator : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-	    lastSpawnPos = transform.position;
+	    lastSpawnPos = new Vector3(0,0,0);
 	}
 
-    private Vector3 lastSpawnPos;
+    public Vector3 lastSpawnPos;
     private Vector3 newSpawnPos;
 
 	// Update is called once per frame
@@ -19,7 +19,8 @@ public class LevelGenerator : MonoBehaviour
 	    if (Vector3.Distance(transform.position, lastSpawnPos) >= 25)
 	    {
 	        lastSpawnPos = transform.position;
-	        Instantiate(levelChunck, lastSpawnPos, Quaternion.identity);
+            newSpawnPos = new Vector3(lastSpawnPos.x + 25, lastSpawnPos.y, lastSpawnPos.z);
+            Instantiate(levelChunck, newSpawnPos, Quaternion.identity);
 	    }
 	}
 }

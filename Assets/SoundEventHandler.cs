@@ -30,6 +30,6 @@ public class SoundEventHandler : MonoBehaviour {
     }
     public void playMusic(AudioClip music)
     {
-        audio.PlayOneShot(music);
+        //audio.PlayOneShot(music);
     }
 }

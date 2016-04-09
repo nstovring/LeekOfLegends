@@ -22,7 +22,7 @@ public class SoundEventHandler : MonoBehaviour {
         music = other.GetComponent<EnemyScript>().punchLines;
         float procChance = 25;
         float procRoll = Random.Range(0, 100);
-        if(procRoll < procChance && !audio.isPlaying)
+        if(procRoll < procChance && !audio.isPlaying && music.Length != 0)
         {
             int chooseSong = (int)Random.Range(0, music.Length - 0.1f);
             playMusic(music[chooseSong]);

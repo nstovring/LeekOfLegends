@@ -65,7 +65,7 @@ public class Spawner : MonoBehaviour {
         {
             int i = (int)Random.Range(0, enemies.Length - 0.1f);
             GameObject newEnemy = Instantiate(enemies[i], transform.position + new Vector3(-1.5f, 0, 0) + new Vector3(Random.Range(0, 0.2f),0, Random.Range(-spawnRange, spawnRange)), Quaternion.identity) as GameObject;
-            //newEnemy.GetComponent<EnemyScript>().Death += SoundEventHandler.soundEventHandler.whichMusic;
+            newEnemy.GetComponent<EnemyScript>().Death += SoundEventHandler.soundEventHandler.whichMusic;
             SpawnedEnemies.Add(newEnemy);
             newEnemy.GetComponent<Rigidbody>().AddForce(((Character.characterTransform.position - newEnemy.transform.position)/Vector3.Distance(Character.characterTransform.position,newEnemy.transform.position))* newEnemy.GetComponent<EnemyScript>().movementSpeed);
             interval = 0;

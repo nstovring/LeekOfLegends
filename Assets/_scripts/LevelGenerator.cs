@@ -45,7 +45,7 @@ public class LevelGenerator : MonoBehaviour
             Sprite sprite = backgroundObjects[Random.Range(0, 11)];
             GameObject clone = Instantiate(new GameObject("backGrounDObject"), objPosition, Quaternion.identity) as GameObject;
             clone.AddComponent<SpriteRenderer>().sprite = sprite;
-            clone.transform.parent = transform;
+            //clone.transform.parent = transform;
         }
     }
 }

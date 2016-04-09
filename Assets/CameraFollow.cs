@@ -20,12 +20,15 @@ public class CameraFollow : MonoBehaviour
     {
         if (Spawner.SpawnedEnemies.Count <= 0)
         {
-            // Create a postion the camera is aiming for based on the offset from the target.
-            Vector3 targetCamPos = target.position + offset;
+            if (target.position.x > transform.position.x)
+            {
+                // Create a postion the camera is aiming for based on the offset from the target.
+                Vector3 targetCamPos = target.position + offset;
 
-            // Smoothly interpolate between the camera's current position and it's target position.
-            Vector3 newXPos = Vector3.Lerp(transform.position, targetCamPos, smoothing*Time.deltaTime);
-            transform.position = new Vector3(newXPos.x,transform.position.y,transform.position.z);
+                // Smoothly interpolate between the camera's current position and it's target position.
+                Vector3 newXPos = Vector3.Lerp(transform.position, targetCamPos, smoothing*Time.deltaTime);
+                transform.position = new Vector3(newXPos.x, transform.position.y, transform.position.z);
+            }
         }
         //else
         //{

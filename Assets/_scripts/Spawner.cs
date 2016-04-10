@@ -23,7 +23,6 @@ public class Spawner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         //spawner = this;
-        Debug.Log("hello");
         runOnce = false;
         nEnemies = 0;
         spawnHeight = 0.57f;
@@ -80,7 +79,8 @@ public class Spawner : MonoBehaviour {
         {
             int i = (int)Random.Range(0, enemies.Length - 0.1f);
             int j = (int)Random.Range(0, enemies.Length - 0.1f);
-            Vector3 addedDist = checkIfWithinRange(transform.position);
+            //Vector3 addedDist = checkIfWithinRange(transform.position);
+            Vector3 addedDist = new Vector3(-1.5f, 0, 0) + new Vector3(Random.Range(0, 0.2f), 0, Random.Range(-spawnRange, spawnRange));
             GameObject newEnemy1 = Instantiate(enemies[i], transform.position + addedDist, Quaternion.identity) as GameObject;
 
             Vector3 oppositePosition = new Vector3(transform.position.x *-1,transform.position.y,transform.position.z);

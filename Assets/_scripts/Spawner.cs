@@ -83,9 +83,9 @@ public class Spawner : MonoBehaviour {
             Vector3 addedDist = new Vector3(-1.5f, 0, 0) + new Vector3(Random.Range(0, 0.2f), 0, Random.Range(-spawnRange, spawnRange));
             GameObject newEnemy1 = Instantiate(enemies[i], transform.position + addedDist, Quaternion.identity) as GameObject;
 
-            Vector3 oppositePosition = new Vector3(transform.position.x *-1,transform.position.y,transform.position.z);
+            Vector3 oppositePosition = new Vector3(transform.position.x -25,transform.position.y + 15,transform.position.z);
 
-            GameObject newEnemy2 = Instantiate(enemies[j], oppositePosition + addedDist, Quaternion.identity) as GameObject;
+            GameObject newEnemy2 = Instantiate(enemies[j], oppositePosition - addedDist, Quaternion.identity) as GameObject;
 
             EnemyScript eScript1 = newEnemy1.GetComponent<EnemyScript>();
             EnemyScript eScript2 = newEnemy2.GetComponent<EnemyScript>();

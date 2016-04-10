@@ -26,6 +26,8 @@ public class Character : MonoBehaviour
 
     private VisualEffects vEffects;
 
+    public static Character instance;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -34,6 +36,7 @@ public class Character : MonoBehaviour
 	    vEffects = GetComponent<VisualEffects>();
         characterTransform = transform;
 	    rb = GetComponent<Rigidbody>();
+	    instance = this;
 	}
 
 

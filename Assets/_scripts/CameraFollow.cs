@@ -18,6 +18,11 @@ public class CameraFollow : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        if (Character.instance.health <= 0)
+        {
+            OnPlayerDeadZoom();
+        }
         SpriteRenderer sRenderer = MoveArrow.GetComponent<SpriteRenderer>();
 
         if (Spawner.SpawnedEnemies.Count <= 0)
@@ -37,6 +42,14 @@ public class CameraFollow : MonoBehaviour
         {
             sRenderer.color = new Color(0,0,0, 0);
         }
+    }
+
+    public void OnPlayerDeadZoom()
+    {
+        Vector3 plyerPos = Character.characterTransform.position;
+        //transform.position = 
+        float orthoGraphSize = Mathf.Lerp(Camera.main.orthographicSize, 10, 0.1f);
+        Camera.main.orthographicSize = orthoGraphSize;
     }
 
     void FlickerColor(SpriteRenderer sRenderer)

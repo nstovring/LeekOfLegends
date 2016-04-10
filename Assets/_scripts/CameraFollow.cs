@@ -46,9 +46,16 @@ public class CameraFollow : MonoBehaviour
 
     public void OnPlayerDeadZoom()
     {
-        Vector3 plyerPos = Character.characterTransform.position;
-        //transform.position = 
-        float orthoGraphSize = Mathf.Lerp(Camera.main.orthographicSize, 10, 0.1f);
+        Vector3 playerPos = Character.characterTransform.position;
+        //transform.position = Vector3.Lerp(transform.position, playerPos, 0.1f);
+
+        Vector3 targetCamPos = target.position + offset;
+        targetCamPos.y = 9;
+        // Smoothly interpolate between the camera's current position and it's target position.
+        Vector3 newXPos = Vector3.Lerp(transform.position, targetCamPos, smoothing * Time.deltaTime);
+        transform.position = new Vector3(newXPos.x, newXPos.y, transform.position.z);
+
+        float orthoGraphSize = Mathf.Lerp(Camera.main.orthographicSize, 2, 0.1f);
         Camera.main.orthographicSize = orthoGraphSize;
     }
 

@@ -56,10 +56,11 @@ public class Character : MonoBehaviour
     {
         //attack sound
         float random = Random.Range(1F, 1.5F);
-        float random2 = Random.Range(0.7F, 1F);
+        float random2 = Random.Range(0.3F, 0.5F);
         audio.pitch = random;
         audio.volume = random2;
         audio.PlayOneShot(punch);
+        audio.volume = 1;
     }
 
     public int dmg = 5;

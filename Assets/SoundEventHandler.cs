@@ -48,6 +48,7 @@ public class SoundEventHandler : MonoBehaviour {
     }
     public void playMusic(AudioClip music)
     {
+        audio.volume = 1;
         audio.clip = music;
         audio.PlayOneShot(music, 1);
     }

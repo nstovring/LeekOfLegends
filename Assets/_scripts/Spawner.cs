@@ -10,20 +10,28 @@ public class Spawner : MonoBehaviour {
     public int maxSpawnAmount;
     [Range(0.1f,2f)]
     public float spawnInterval;
-
+    bool runOnce;
     float time;
     float interval;
     int nEnemies;
     public float spawnRange;
     public static float spawnHeight;
+    public GameObject spawnerPrefab;
+    GameObject otherSpawner;
+    public static Spawner spawner;
+    bool other;
 	// Use this for initialization
 	void Start () {
+        //spawner = this;
+        Debug.Log("hello");
+        runOnce = false;
         nEnemies = 0;
         spawnHeight = 0.57f;
         SpawnedEnemies = new List<GameObject>();
         //range = 10;
         time = 0;
         interval = 0;
+
 	}
 	
 	// Update is called once per frame
@@ -38,6 +46,14 @@ public class Spawner : MonoBehaviour {
         if (Vector3.Distance(Character.characterTransform.position,transform.position) <= range)
         {
             StartSpawn(maxSpawnAmount, spawnInterval, false);
+            if (!runOnce && !other)
+            {
+                Debug.Log("spawning other");
+                otherSpawner = Instantiate(spawnerPrefab, transform.position - new Vector3(20, 0, 0), Quaternion.identity) as GameObject;
+                otherSpawner.GetComponent<Spawner>().other = true;
+                otherSpawner.transform.parent = transform;
+                runOnce = true;
+            }
         }
     }
     void StartSpawn(int wantedTime, float wantedInterval)
@@ -56,7 +72,6 @@ public class Spawner : MonoBehaviour {
             SpawnedEnemies.Add(newEnemy);
             interval = 0;
             time = 0;
-            moveSpawner(new Vector3(20, 0, 0));
         }
     }
     void StartSpawn(int wantedEnemies, float wantedInterval, bool check)
@@ -76,12 +91,17 @@ public class Spawner : MonoBehaviour {
         {
             interval = 0;
             nEnemies = 0;
-            moveSpawner(new Vector3(20, 0, 0));
+            if (!other)
+            {
+                moveSpawner(new Vector3(25, 0, 0));
+            }
+            else Destroy(gameObject);
         }
     }
     void moveSpawner(Vector3 movement)
     {
         transform.position += movement;
+        runOnce = false;
     }
     Vector3 checkIfWithinRange(Vector3 position)
     {

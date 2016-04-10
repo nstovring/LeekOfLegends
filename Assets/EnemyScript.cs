@@ -85,6 +85,7 @@ public class EnemyScript : Stats {
     }
     public void OnDeath()
     {
+        ChangeSprite(enemyState[2]);
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.isKinematic = false;
         rb.useGravity = true;
@@ -121,6 +122,15 @@ public class EnemyScript : Stats {
         Vector3 distVector = Character.characterTransform.position - transform.position;
         float angle;
         Quaternion rotation;
+
+        if (distVector.magnitude > 10)
+        {
+            ChangeSprite(enemyState[0]);
+        }else if (distVector.magnitude < 10 && !dead)
+        {
+            ChangeSprite(enemyState[1]);
+        }
+
         if (distVector.x >= 0)
         {
             angle = Vector3.Angle(distVector, Vector3.right);
@@ -188,8 +198,9 @@ public class EnemyScript : Stats {
         }
     }
     public Sprite[] enemyState = new Sprite[3];
+    public SpriteRenderer myRenderer;
     public void ChangeSprite(Sprite state)
     {
-        GetComponentInChildren<SpriteRenderer>().sprite = state;
+        myRenderer.sprite = state;
     }
 }

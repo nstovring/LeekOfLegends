@@ -199,6 +199,8 @@ public class EnemyScript : Stats {
     }
     public Sprite[] enemyState = new Sprite[3];
     public SpriteRenderer myRenderer;
+    public int dmg = 1;
+
     public void ChangeSprite(Sprite state)
     {
         myRenderer.sprite = state;

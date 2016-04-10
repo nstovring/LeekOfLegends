@@ -181,7 +181,7 @@ public class Character : MonoBehaviour
             EnemyScript eScript = other.transform.GetComponent<EnemyScript>();
             if (!eScript.dead)
             {
-                ReceiveDamage(1);
+                ReceiveDamage(eScript.dmg);
             }
         }
     }

@@ -81,9 +81,12 @@ public class Spawner : MonoBehaviour {
             int i = (int)Random.Range(0, enemies.Length - 0.1f);
             Vector3 addedDist = checkIfWithinRange(transform.position);
             GameObject newEnemy = Instantiate(enemies[i], transform.position + addedDist, Quaternion.identity) as GameObject;
-            newEnemy.GetComponent<EnemyScript>().Death += SoundEventHandler.soundEventHandler.whichMusic;
+            EnemyScript eScript = newEnemy.GetComponent<EnemyScript>();
+            eScript.Death += SoundEventHandler.soundEventHandler.whichMusic;
+            eScript.dmg = enemyDamage;
             SpawnedEnemies.Add(newEnemy);
             newEnemy.GetComponent<Rigidbody>().AddForce(((Character.characterTransform.position - newEnemy.transform.position)/Vector3.Distance(Character.characterTransform.position,newEnemy.transform.position))* newEnemy.GetComponent<EnemyScript>().movementSpeed);
+
             interval = 0;
             nEnemies++;
         }
@@ -97,7 +100,12 @@ public class Spawner : MonoBehaviour {
             }
             else Destroy(gameObject);
         }
+        maxSpawnAmount += 2;
+        enemyDamage *= 2;
     }
+
+    public int enemyDamage = 1;
+
     void moveSpawner(Vector3 movement)
     {
         transform.position += movement;

@@ -39,9 +39,8 @@ public class VisualEffects : MonoBehaviour {
             effect.transform.localScale = Vector3.one * scaleModifier;
             yield return new WaitForSeconds(0.1f);
         }
-
+        Destroy(effect, 0.5f);
         yield return new WaitForSeconds(0.5f);
-        Destroy(effect);
         sRenderer.sprite = null;
         StopCoroutine("DisplaySoundEffects");
     }

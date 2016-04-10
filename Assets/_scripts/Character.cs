@@ -12,6 +12,7 @@ public class Character : MonoBehaviour
     public int health = 100; 
     public AudioClip punch;
     public AudioClip landingClip;
+    public AudioClip deathClip;
     public Animator animator;
 
     private AudioSource audio;
@@ -19,6 +20,7 @@ public class Character : MonoBehaviour
     private float startringVolume = 0.7F;
     private int animSwitch = 1;
     private Rigidbody rb;
+    private bool alive = true;
 
     public Text healthText;
 
@@ -38,9 +40,13 @@ public class Character : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-        
-        Move();
-        GetEnemyCollision();
+
+	    if (alive)
+	    {
+            Move();
+            GetEnemyCollision();
+        }
+       
 
        
 
@@ -139,7 +145,14 @@ public class Character : MonoBehaviour
 
     void Die()
     {
+        alive = !alive;
         animator.SetInteger("animState", 3);
+        audio.PlayOneShot(deathClip);
+        Time.fixedDeltaTime = 0.1F;
+        rb.isKinematic = false;
+        rb.AddForce(transform.up * 20, ForceMode.Impulse);
+        rb.AddForce(transform.forward*-1*3,ForceMode.Impulse);
+        
     }
 
     public void Move()

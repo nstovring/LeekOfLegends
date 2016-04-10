@@ -1,0 +1,161 @@
+fileFormatVersion: 2
+guid: 913d577b83fe6d74781388c021312194
+timeCreated: 1460246031
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Cheese sprites_0
+    21300002: Cheese sprites_1
+    21300004: Cheese sprites_2
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Cheese sprites_0
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 356
+        width: 367
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 169.5, y: -62}
+        - {x: 183.5, y: 9}
+        - {x: 183.5, y: 84}
+        - {x: 171.5, y: 94}
+        - {x: 167.5, y: 97}
+        - {x: 81.5, y: 97}
+        - {x: 58.5, y: 94}
+        - {x: 49.5, y: 93}
+        - {x: 43.5, y: 92}
+        - {x: 34.5, y: 91}
+        - {x: 29.5, y: 90}
+        - {x: -29.5, y: 85}
+        - {x: -67.5, y: 76}
+        - {x: -182.5, y: 40}
+        - {x: -183.5, y: 38}
+        - {x: -183.5, y: -24}
+        - {x: -163.5, y: -91}
+        - {x: -152.5, y: -97}
+        - {x: 17.5, y: -97}
+        - {x: 43.5, y: -96}
+        - {x: 121.5, y: -92}
+        - {x: 151.5, y: -77}
+    - name: Cheese sprites_1
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 356
+        width: 367
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 43.5, y: -92}
+        - {x: 121.5, y: -92}
+        - {x: 162.5, y: -73}
+        - {x: 172.5, y: -56}
+        - {x: 170.5, y: -43}
+        - {x: 178.5, y: -13}
+        - {x: 183.5, y: 14}
+        - {x: 183.5, y: 83}
+        - {x: 167.5, y: 97}
+        - {x: 76.5, y: 97}
+        - {x: 34.5, y: 91}
+        - {x: -9.5, y: 86}
+        - {x: -54.5, y: 79}
+        - {x: -71.5, y: 76}
+        - {x: -183.5, y: 39}
+        - {x: -183.5, y: -6}
+        - {x: -172.5, y: -60}
+        - {x: -153.5, y: -97}
+        - {x: -106.5, y: -97}
+        - {x: -35.5, y: -96}
+        - {x: 17.5, y: -96}
+        - {x: 34.5, y: -83}
+    - name: Cheese sprites_2
+      rect:
+        serializedVersion: 2
+        x: 1060
+        y: 356
+        width: 366
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 161, y: -73}
+        - {x: 174, y: -56}
+        - {x: 171, y: -28}
+        - {x: 179, y: -13}
+        - {x: 183, y: 22}
+        - {x: 183, y: 83}
+        - {x: 167, y: 97}
+        - {x: 74, y: 97}
+        - {x: 28, y: 91}
+        - {x: -11, y: 87}
+        - {x: -72, y: 76}
+        - {x: -182, y: 39}
+        - {x: -183, y: 37}
+        - {x: -183, y: -8}
+        - {x: -181, y: -20}
+        - {x: -180, y: -44}
+        - {x: -176, y: -59}
+        - {x: -156, y: -93}
+        - {x: -152, y: -97}
+        - {x: -80, y: -97}
+        - {x: 1, y: -94}
+        - {x: 27, y: -92}
+        - {x: 42, y: -94}
+        - {x: 121, y: -91}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

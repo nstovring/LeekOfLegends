@@ -40,10 +40,9 @@ public class LevelGenerator : MonoBehaviour
         int amountOfObjects = Random.Range(1, 4);
         for (int i = 0; i < amountOfObjects; i++)
         {
-            Debug.Log("Spawning Extra stuff");
             Vector3 objPosition = new Vector3(centerAreaVector3.x + Random.Range(-25, 25), 0, centerAreaVector3.z + Random.Range(-7, 7));
             Sprite sprite = backgroundObjects[Random.Range(0, 11)];
-            GameObject clone = Instantiate(new GameObject("backGrounDObject"), objPosition, Quaternion.identity) as GameObject;
+            GameObject clone = Instantiate(new GameObject("backGroundObject"), objPosition, Quaternion.identity) as GameObject;
             clone.AddComponent<SpriteRenderer>().sprite = sprite;
             //clone.transform.parent = transform;
         }

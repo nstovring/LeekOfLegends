@@ -91,7 +91,6 @@ public class Character : MonoBehaviour
     {
         if (Input.GetButtonDown("Attack"))
         {
-            vEffects.StartCoroutine("DisplaySoundEffectS");
             //animation switch
             animSwitch *= -1;
             Debug.Log(animSwitch);
@@ -102,7 +101,7 @@ public class Character : MonoBehaviour
                 if (hitCollider.transform.tag == opposition)
                 {
                     EnemyScript curEnemy = hitCollider.transform.GetComponent<EnemyScript>();
-                    Debug.Log("Our hero is attacking");
+                    vEffects.StartCoroutine("DisplaySoundEffectS");
                     Attack();
                     curEnemy.RecieveDamage(dmg);
                 }

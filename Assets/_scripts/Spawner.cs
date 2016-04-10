@@ -48,10 +48,10 @@ public class Spawner : MonoBehaviour {
             StartSpawn(maxSpawnAmount, spawnInterval, false);
             if (!runOnce && !other)
             {
-                Debug.Log("spawning other");
-                otherSpawner = Instantiate(spawnerPrefab, transform.position - new Vector3(20, 0, 0), Quaternion.identity) as GameObject;
-                otherSpawner.GetComponent<Spawner>().other = true;
-                otherSpawner.transform.parent = transform;
+                //Debug.Log("spawning other");
+                //otherSpawner = Instantiate(spawnerPrefab, transform.position - new Vector3(20, 0, 0), Quaternion.identity) as GameObject;
+                //otherSpawner.GetComponent<Spawner>().other = true;
+                //otherSpawner.transform.parent = transform;
                 runOnce = true;
             }
         }
@@ -79,16 +79,27 @@ public class Spawner : MonoBehaviour {
         if (nEnemies < wantedEnemies && interval > wantedInterval)
         {
             int i = (int)Random.Range(0, enemies.Length - 0.1f);
+            int j = (int)Random.Range(0, enemies.Length - 0.1f);
             Vector3 addedDist = checkIfWithinRange(transform.position);
-            GameObject newEnemy = Instantiate(enemies[i], transform.position + addedDist, Quaternion.identity) as GameObject;
-            EnemyScript eScript = newEnemy.GetComponent<EnemyScript>();
-            eScript.Death += SoundEventHandler.soundEventHandler.whichMusic;
-            eScript.dmg = enemyDamage;
-            SpawnedEnemies.Add(newEnemy);
-            newEnemy.GetComponent<Rigidbody>().AddForce(((Character.characterTransform.position - newEnemy.transform.position)/Vector3.Distance(Character.characterTransform.position,newEnemy.transform.position))* newEnemy.GetComponent<EnemyScript>().movementSpeed);
+            GameObject newEnemy1 = Instantiate(enemies[i], transform.position + addedDist, Quaternion.identity) as GameObject;
+
+            Vector3 oppositePosition = new Vector3(transform.position.x *-1,transform.position.y,transform.position.z);
+
+            GameObject newEnemy2 = Instantiate(enemies[j], oppositePosition + addedDist, Quaternion.identity) as GameObject;
+
+            EnemyScript eScript1 = newEnemy1.GetComponent<EnemyScript>();
+            EnemyScript eScript2 = newEnemy2.GetComponent<EnemyScript>();
+            eScript1.Death += SoundEventHandler.soundEventHandler.whichMusic;
+            eScript2.Death += SoundEventHandler.soundEventHandler.whichMusic;
+            eScript1.dmg = enemyDamage;
+            eScript2.dmg = enemyDamage;
+            SpawnedEnemies.Add(newEnemy1);
+            SpawnedEnemies.Add(newEnemy2);
+            newEnemy1.GetComponent<Rigidbody>().AddForce(((Character.characterTransform.position - newEnemy1.transform.position)/Vector3.Distance(Character.characterTransform.position,newEnemy1.transform.position))* newEnemy1.GetComponent<EnemyScript>().movementSpeed);
+            newEnemy2.GetComponent<Rigidbody>().AddForce(((Character.characterTransform.position - newEnemy2.transform.position) / Vector3.Distance(Character.characterTransform.position, newEnemy2.transform.position)) * newEnemy2.GetComponent<EnemyScript>().movementSpeed);
 
             interval = 0;
-            nEnemies++;
+            nEnemies++; //Maybe say += 2?
         }
         if (nEnemies == wantedEnemies)
         {
@@ -100,8 +111,8 @@ public class Spawner : MonoBehaviour {
             }
             else Destroy(gameObject);
         }
-        maxSpawnAmount += 2;
-        enemyDamage *= 2;
+       // maxSpawnAmount += 2;
+       // enemyDamage *= 2;
     }
 
     public int enemyDamage = 1;
@@ -110,6 +121,8 @@ public class Spawner : MonoBehaviour {
     {
         transform.position += movement;
         runOnce = false;
+        maxSpawnAmount += 2;
+        enemyDamage *= 2;
     }
     Vector3 checkIfWithinRange(Vector3 position)
     {
